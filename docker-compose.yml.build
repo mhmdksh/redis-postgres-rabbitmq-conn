@@ -35,7 +35,7 @@ services:
       - app-network
 
   rpr-connect:
-    image: eddsnx3/rpr-connect
+    build: .
     environment:
       POSTGRES_URI: postgres://postgres:postgres@postgres:5432/testdb
       REDIS_HOST: redis

@@ -1,5 +1,3 @@
-# redis-postgres-rabbitmq-conn
-A very simple Nodejs app to test the connection to Postgres DB, Redis Cache, and RabbitMQ
 # Node.js Multi-Service Connector
 
 🚀 **Node.js Multi-Service Connector** is a very simple Nodejs app to test the connection to Postgres DB, Redis Cache, and RabbitMQ

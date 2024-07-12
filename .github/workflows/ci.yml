@@ -26,6 +26,3 @@ jobs:
           context: .
           push: true
           tags: eddsnx3/rpr-connect:latest
-      - name: Inspect
-        run: |
-          docker image inspect eddsnx3/rpr-connect:latest

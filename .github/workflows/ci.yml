@@ -4,26 +4,19 @@ on:
   push:
     branches:
       - 'main'
-
 jobs:
-  publish:
+  docker-push:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v2
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Build
+        uses: docker/build-push-action@v6
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          push: true
-          tags: ghcr.io/mhmdksh/rpr-connect:latest
+          load: true
+          tags: rpr-connect:latest
+      
+      - name: Inspect
+        run: |
+          docker image inspect rpr-connect:latest

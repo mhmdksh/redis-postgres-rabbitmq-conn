@@ -36,11 +36,6 @@ services:
 
   rpr-connect:
     image: eddsnx3/rpr-connect
-    environment:
-      POSTGRES_URI: postgres://postgres:postgres@postgres:5432/testdb
-      REDIS_HOST: redis
-      REDIS_PORT: 6379
-      RABBITMQ_URI: amqp://user:password@rabbitmq:5672
     depends_on:
       - postgres
       - redis

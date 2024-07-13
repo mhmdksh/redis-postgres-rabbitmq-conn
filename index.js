@@ -144,8 +144,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/health', (req, res) => {
-//    if (postgresConnected && redisConnected && rabbitMQConnected) {
-    if (redisConnected) {
+    if (postgresConnected && redisConnected && rabbitMQConnected) {
         res.status(200).send('OK');
     } else {
         res.status(500).send('Not all apps are connected yet.');

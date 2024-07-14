@@ -11,14 +11,9 @@ const app = express();
 let postgresConnected = false;
 let redisConnected = false;
 let rabbitMQConnected = false;
-let postgresClient = null; // Global variable for the Postgres client
 
 const connectPostgres = async () => {
-    if (postgresConnected) {
-        return postgresClient;
-    }
-
-    postgresClient = new Client({
+    const postgresClient = new Client({
         connectionString: process.env.POSTGRES_URI,
     });
 

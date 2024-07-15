@@ -18,9 +18,11 @@ const connectPostgres = async () => {
         return postgresClient;
     }
 
-    postgresClient = new Client({
-        connectionString: process.env.POSTGRES_URI,
-    });
+    if (!postgresClient) {
+        postgresClient = new Client({
+            connectionString: process.env.POSTGRES_URI,
+        });
+    }
 
     while (!postgresConnected) {
         try {
